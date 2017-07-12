@@ -18,3 +18,7 @@ build/*
 
 # App directory
 /*-x64/*
+
+# Images
+IconTemplate.png
+app/assets/ika.icns

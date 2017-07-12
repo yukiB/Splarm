@@ -1,7 +1,10 @@
+@charset "utf-8";
+@import "match";
+
 $margin: 10px;
 
 html, body, container {
-	font-size: 15px;
+	font-size: 13px;
 	cursor:default;
     height: 100%;
 	width: 100%;
@@ -37,3 +40,38 @@ body {
 	    cursor:pointer;
     }
 }
+
+.rotateobj{
+  	animation: rotate 2s; 
+ 	animation-iteration-count: infinite; 
+	background-position: center center; 
+    -webkit-animation: rotate 2s; /* Safari & Chrome */
+  	-webkit-animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin:center center;
+}
+
+@keyframes rotate { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } 
+}
+@-webkit-keyframes rotate { /*Safari & Chrome */
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); } 
+}
+
+$icon-size: 30px;
+
+#reloading{
+	position: absolute;
+	width: $icon-size;
+	height: $icon-size;
+	top:0px;
+	right:0px;
+	margin: 0px;
+	padding: 0px;
+    background-image: url(../assets/reload.png);
+    background-repeat: no-repeat;
+  	background-size: 100%;
+}
+
