@@ -4,7 +4,7 @@
 $margin: 10px;
 
 html, body, container {
-	font-size: 13px;
+	font-size: 12px;
 	cursor:default;
     height: 100%;
 	width: 100%;
@@ -73,5 +73,6 @@ $icon-size: 30px;
     background-image: url(../assets/reload.png);
     background-repeat: no-repeat;
   	background-size: 100%;
+    cursor: pointer;
 }
 
