@@ -1,0 +1,39 @@
+$margin: 10px;
+
+html, body, container {
+	font-size: 15px;
+	cursor:default;
+    height: 100%;
+	width: 100%;
+    margin:  0px 0px;
+}
+
+body {
+    font-family:'Helvetica Neue', Helvetica, 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', Arial, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+#container {
+    height: 100%;
+}
+
+#content {
+    height: calc(100% - #{$margin});
+    position: relative;
+    margin: $margin $margin;
+}
+
+#quit {
+    position: absolute;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    border-top: solid 1px #555555;
+    bottom: 0px;
+    &:hover {
+        background-color: #aaaaaa;
+        width: calc(100% + #{$margin} * 2);
+        margin-left: calc(-1 * #{$margin});
+	    cursor:pointer;
+    }
+}
