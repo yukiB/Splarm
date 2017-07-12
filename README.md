@@ -10,12 +10,12 @@ npm install
 gulp
 ```
 
-# Menu bar's Icon
+## Menu bar's Icon
 
 If you want to set original icon in the menu bar,
 you set the `IconTemplate.png` file at root dir.
 
-#Build App
+## Build App
 
 If you want to create a desktop app, you can use electron-packager
 For example, if you create an app for OSX,
