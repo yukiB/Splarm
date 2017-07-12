@@ -92,7 +92,7 @@ export default class Match extends React.Component {
     
     return(
       <div>
-        <div>{nowMatch ? toDate(nowMatch.start) : null}</div>
+        <div className="now-time">{nowMatch ? toDate(nowMatch.start) : null}</div>
         {matches}
       </div>
     );

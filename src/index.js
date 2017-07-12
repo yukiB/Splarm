@@ -3,7 +3,7 @@
 const splainfo = require('./splainfo')
 
 const path = require('path')
-var menubar = require('menubar')
+const menubar = require('menubar')
 const {ipcMain, app} = require('electron')
 
 var mb = menubar({index: path.join('file://', __dirname, '/index.html'), width:300, height:200, preloadWindow:true})
@@ -13,14 +13,11 @@ mb.on('ready', function ready() {
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // prints "ping"
-  console.log('tmp')
-  event.returnValue = 'pong'
+  //event.returnValue = 'pong'
 })
 
 ipcMain.on('print-message', (event, arg) => {
   console.log(arg);
-  //event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('splainfo', (event, arg) => {
@@ -30,13 +27,10 @@ ipcMain.on('splainfo', (event, arg) => {
     res.fes_state = -1;
     res.match = [{regular: si.regular, start: si.starttime, end: si.endtime, ranked: si.ranked, rule: si.ranked_rule},
                  {regular: si.next_regular, start: si.next_starttime, end: si.next_endtime, ranked: si.next_ranked, rule: si.next_ranked_rule}];
-    console.log('spl')
     event.sender.send('splainfo-reply', JSON.stringify(res));
-    console.log('send')
   })
 })
 
 ipcMain.on('end', (event, arg) => {
-  console.log(arg);
   app.quit();
 })
