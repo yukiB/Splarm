@@ -6,7 +6,7 @@ const path = require('path')
 const menubar = require('menubar')
 const {ipcMain, app} = require('electron')
 
-var mb = menubar({index: path.join('file://', __dirname, '/index.html'), width:300, height:200, preloadWindow:true})
+var mb = menubar({index: path.join('file://', __dirname, '/index.html'), width:330, height:180, preloadWindow:true})
 
 mb.on('ready', function ready() {
   console.log('app is ready')
