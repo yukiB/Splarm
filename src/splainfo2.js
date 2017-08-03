@@ -3,7 +3,7 @@ var http = require('http');
 var events = require('events');
 
 const areaDict = {'The Reef': "バッテラストリート", 'Musselforge Fitness': "フジツボスポーツクラブ", 
-                  'Inkblot Art Academy': "海女美術大学", 'Humpback Pump Track': "コンブトラック", 
+                  'Inkblot Art Academy': "海女美術大学", 'Humpback Pump Track': "コンブトラック", 'Shifty Station': "ミステリーゾーン",
                   'Starfish Mainstage': "ガンガゼ野外音楽堂", 'Sturgeon Shipyard': "チョウザメ造船", 'Port Mackerel': "ホッケふ頭", 'Moray Towers': "タチウオパーキング"};
 
 const ruleDict = {'Tower Control': "ガチヤグラ", 'Splat Zones': "ガチエリア", 'Rainmaker': "ガチホコ"};
