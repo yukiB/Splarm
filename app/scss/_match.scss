@@ -8,13 +8,20 @@
 	    position: absolute;
 	    top:35px;
 	    right:10px;
+   		-moz-user-select: none;
+    	-webkit-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
     }
     
     #down{
 	    position: absolute;
 	    top:55px;
 	    right:10px;
-        
+   		-moz-user-select: none;
+    	-webkit-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
     }
     
     .type-name {

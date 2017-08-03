@@ -21,21 +21,21 @@ export default class Container extends React.Component {
 
   reload() {
     this.setState({loading: true});
-    ipcRenderer.send('splainfo', '');
+    ipcRenderer.send('splainfo2', '');
   }
 
   componentDidMount() {
 
     ipcRenderer.on('splainfo-reply', (event, arg) => {
       let data = JSON.parse(arg);
-      //ipcRenderer.send('print-message', data.match[0]);
       this.setState({loading: false, data: data});
     });
     this.reload();
   }
 
   getTimer(time) {
-    setTimeout(() => {ipcRenderer.send('splainfo', '')}, time);
+    ipcRenderer.send('print-message', time); 
+    setTimeout(() => {ipcRenderer.send('splainfo2', '')}, time);
   }
 
   render() {

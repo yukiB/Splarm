@@ -30,9 +30,10 @@ export class MatchContent extends React.Component {
 
 const setNotifcation = (match, setTimer) => {
   let now = new Date();
-  let  time = (match[1].start - now.getTime());
+  let next = match[1].leagueRule ? match[1].start * 1000 : match[1].start;
+  let  time = (next - now.getTime());
   setTimer(time + 10 * 1000);
-  let n = new Notification("【" + match[0].rule + "】", {body: match[0].ranked.join(', '), timeout: 2000});
+  let n = new Notification("【" + match[0].gachiRule + "】", {body: match[0].gachi.join(', '), timeout: 2000});
   
 }
 
@@ -82,17 +83,21 @@ export default class Match extends React.Component {
         nowMatch = data.match ? data.match[nowId] : null,
         upActive = nowId != 0,
         downActive = nowMatch && nowId != size - 1;
+    let leagueMatch = nowMatch ? <MatchContent typeName={"リーグマッチ: " + nowMatch.leagueRule} stages={nowMatch.league} /> : null;
+    //let nowStart = nowMatch.leagueRule ? nowMatch.start * 1000 : nowMatch.start;
     let matches = nowMatch ? 
                   <div id="match-block">
-                    <MatchContent typeName={nowMatch.rule} stages={nowMatch.ranked} />
+                    <MatchContent typeName={"ガチマッチ: " + nowMatch.gachiRule} stages={nowMatch.gachi} />
+                    {leagueMatch}
                     <MatchContent typeName={"ナワバリ"} stages={nowMatch.regular} />
                     <div id="up" onClick={this.upHandler.bind(this)} className={upActive ? "active_button" : null}>{upActive ? "▲" : "△"}</div>
                     <div id="down" onClick={this.downHandler.bind(this)} className={downActive ? "active_button" : null}>{downActive ? "▼" : "▽"}</div>
                   </div> : null;
+
     
     return(
       <div>
-        <div className="now-time">{nowMatch ? toDate(nowMatch.start) : null}</div>
+        <div className="now-time">{nowMatch ? toDate(nowMatch.start * 1000) : null}</div>
         {matches}
       </div>
     );
