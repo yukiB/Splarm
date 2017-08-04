@@ -31,7 +31,7 @@ export class MatchContent extends React.Component {
 const setNotifcation = (match, setTimer) => {
   let now = new Date();
   let next = match[1].start * 1000;
-  let  time = (next - now.getTime());
+  let  time = (next - now.getTime()) < 0 ? match[2].start * 1000 - now.getTime() : (next - now.getTime());
 
   setTimer(time + 60 * 1000 * 4);
   let n = new Notification("【" + match[0].gachiRule + "】", {body: match[0].gachi.join(', '), timeout: 2000});
